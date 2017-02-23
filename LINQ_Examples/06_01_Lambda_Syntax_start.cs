@@ -110,6 +110,7 @@ namespace LINQ_Examples
             AllStateAbbreviationsThatAreTheSame();
             FirstThreeCustomers();
             SortCustomersAlphabeticallyByFirstname();
+            SortCustomersByLengthOfLastname();
             Console.ReadKey();
         }
         static void CustomersFromGAAndTheirPurchases()
@@ -162,10 +163,11 @@ namespace LINQ_Examples
             }
             Console.WriteLine();
         }
+        static List<string> fullNames = new List<string>();
         static void AllFullNames()
         {
             Console.WriteLine("Fullnames Of All Customers:");
-            List<string> fullNames = new List<string>();
+            
             foreach (Customer c in customers)
             {
                 fullNames.Add(c.First + " " + c.Last);
@@ -222,14 +224,29 @@ namespace LINQ_Examples
         }
         static void SortCustomersAlphabeticallyByFirstname()
         {
+            Console.WriteLine("Sorted customers alphabetically:");
+            fullNames.Sort();
+            foreach (string f in fullNames)
+            {
+                Console.WriteLine(f);
+            }
+            
+            Console.WriteLine();
+
+        }
+        static void SortCustomersByLengthOfLastname()
+        {
+            //Not working
+            Console.WriteLine("Sorted customers by lenght of last name:");
+
+            Console.WriteLine();
+        }
+        static void SortAListOfCustomersByPriceFromHighestToLowest()
+        {
             foreach (Customer c in customers)
             {
                 
-                c.Sort();
-                Console.WriteLine(c);
-                
             }
         }
-
     }
 }
